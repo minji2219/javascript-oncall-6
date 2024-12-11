@@ -12,7 +12,7 @@ export class Date {
     const month = input.split(',')[0];
     const day = input.split(',')[1];
     if (!Number(month) || month < 1 || month > 12) throw new Error(ERROR_MSG.invalidInput);
-    if (dayArr.indexOf(day) < -1) throw new Error(ERROR_MSG.invalidInput);
+    if (dayArr.indexOf(day) === -1) throw new Error(ERROR_MSG.invalidInput);
     this.makeDate(Number(month), day);
   }
 
