@@ -24,6 +24,7 @@ export class Assigning {
 
   assigningWeekday(date) {
     this.weekdayOrder++;
+    if (this.weekdayOrder === this.workers.weekday.length) this.weekdayOrder = 0;
     if (this.weekdayKeep !== '') {
       OutputView.printWork(this.month, date.date, date.day, this.weekdayKeep);
       this.weekdayKeep = '';
@@ -36,12 +37,12 @@ export class Assigning {
       OutputView.printWork(this.month, date.date, date.day, this.workers.weekday[this.weekdayOrder + 1]);
       this.weekdayKeep = this.workers.weekday[this.weekdayOrder];
     }
-
-    if (this.weekdayOrder >= this.workers.weekday.length - 1) this.weekdayOrder = -1;
   }
 
   assigningWeekend(date) {
     this.weekendOrder++;
+    if (this.weekendOrder === this.workers.weekend.length) this.weekendOrder = 0;
+
     if (this.weekendKeep !== '') {
       OutputView.printWork(this.month, date.date, date.day, this.weekendKeep, date.isHoliday);
       this.weekendKeep = '';
@@ -55,6 +56,5 @@ export class Assigning {
       OutputView.printWork(this.month, date.date, date.day, this.workers.weekend[this.weekendOrder + 1], date.isHoliday);
       this.weekendKeep = this.workers.weekend[this.weekendOrder];
     }
-    if (this.weekendOrder >= this.workers.weekend.length - 1) this.weekendOrder = -1;
   }
 }
