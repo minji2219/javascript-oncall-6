@@ -3,6 +3,7 @@ import {HolidayInfo} from './HolidayInfo.js';
 
 export class Date {
   constructor(input) {
+    this.month = 0;
     this.date = [];
     this.validateDate(input);
   }
@@ -14,6 +15,7 @@ export class Date {
     if (!Number(month) || month < 1 || month > 12) throw new Error(ERROR_MSG.invalidInput);
     if (dayArr.indexOf(day) === -1) throw new Error(ERROR_MSG.invalidInput);
     this.makeDate(Number(month), day);
+    this.month = month;
   }
 
   makeDate(month, day) {
